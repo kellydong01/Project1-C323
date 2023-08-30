@@ -10,7 +10,7 @@ The following **required** functionality is completed:
 * [ ] User can type digits onto the view at the top.
 * [ ] User can find percentages, add decimals, and change signs of a number.
 * [ ] User can clear the calculator.
-* [ ] 
+
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
