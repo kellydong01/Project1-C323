@@ -1,20 +1,15 @@
-# Project Name
+# Calculator
 
-Description of the project ...
+A basic android calculator app that semi-replicates the defaul iPhone calculator app.
 
 ## Functionality 
 
 The following **required** functionality is completed:
 
-* [ ] User sees ...
-* [ ] User can ...
-* [ ] ...
-* [ ] ...
-
-The following **extensions** are implemented:
-
-* ...
-* ...
+* [ ] User can  do addition, substraction, multiplication, and division.
+* [ ] User can type digits onto the view at the top.
+* [ ] User can find percentages, add decimals, and change signs of a number.
+* [ ] User can clear the calculator.
 
 ## Video Walkthrough
 
@@ -26,11 +21,12 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Came across two challenges: not understanding that LinearLayout is more stable when you have a set of them inside a child LinearLayout instead of being childs of the root LinearLayout,
+and not being able to get assignments of first initial inputed number and second one stable for a little.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2023] [Kelly Dong]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
