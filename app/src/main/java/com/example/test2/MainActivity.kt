@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         val bDiv = findViewById<Button>(R.id.bDivision)
         val bSign = findViewById<Button>(R.id.bSign)
         val bPercent = findViewById<Button>(R.id.bPercent)
+        val bDec = findViewById<Button>(R.id.bDecimal)
 
         // OnClick Listeners for all buttons
 
@@ -78,6 +79,7 @@ class MainActivity : AppCompatActivity() {
         bSub.setOnClickListener { operationsClick("-") }
         bMul.setOnClickListener { operationsClick("x") }
         bDiv.setOnClickListener { operationsClick("/") }
+
         bPercent.setOnClickListener {
             operationsClick("%")
             equalsOperations(operation)
@@ -97,6 +99,13 @@ class MainActivity : AppCompatActivity() {
             currentNumber = results.toString()
             initNum = results
             displayTextView.text = results.toString()
+        }
+
+        bDec.setOnClickListener {
+            if (!currentNumber.contains(".")){
+                currentNumber += "."
+                displayTextView.text = currentNumber
+            }
         }
 
     }
