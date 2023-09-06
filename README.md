@@ -1,15 +1,17 @@
 # Calculator
 
-A basic android calculator app that semi-replicates the defaul iPhone calculator app.
+A basic android calculator app that semi-replicates the defaul iPhone calculator app. It now has extended
+functionality and has a landscape version of the app.
 
 ## Functionality 
 
 The following **required** functionality is completed:
 
-* [ ] User can  do addition, substraction, multiplication, and division.
+* [ ] User can do addition, substraction, multiplication, and division.
 * [ ] User can type digits onto the view at the top.
 * [ ] User can find percentages, add decimals, and change signs of a number.
 * [ ] User can clear the calculator.
+* [ ] User can rotate the calculator for additional functionalities.
 
 ## Video Walkthrough
 
