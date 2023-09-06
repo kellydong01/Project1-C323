@@ -110,6 +110,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        clear()
+    }
+
     /**
      * Method used for the C Button, resets and clears display
      */
