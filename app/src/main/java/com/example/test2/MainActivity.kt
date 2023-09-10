@@ -2,7 +2,11 @@ package com.example.test2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
+import kotlin.math.cos
+import kotlin.math.sin
+import kotlin.math.tan
 
 class MainActivity : AppCompatActivity() {
 
@@ -55,6 +59,11 @@ class MainActivity : AppCompatActivity() {
         val bSign = findViewById<Button>(R.id.bSign)
         val bPercent = findViewById<Button>(R.id.bPercent)
         val bDec = findViewById<Button>(R.id.bDecimal)
+        val bSin = findViewById<Button>(R.id.bSin)
+        val bCos = findViewById<Button>(R.id.bCos)
+        val bTan = findViewById<Button>(R.id.bTan)
+        val bLog = findViewById<Button>(R.id.bLog10)
+        val bLn = findViewById<Button>(R.id.bNatLog)
 
         // OnClick Listeners for all buttons
 
@@ -80,7 +89,9 @@ class MainActivity : AppCompatActivity() {
         bMul.setOnClickListener { operationsClick("x") }
         bDiv.setOnClickListener { operationsClick("/") }
 
+        // Percent Operator
         bPercent.setOnClickListener {
+            Log.i("Operation Clicked", "percent is clicked")
             operationsClick("%")
             equalsOperations(operation)
             initNum = results
@@ -88,12 +99,16 @@ class MainActivity : AppCompatActivity() {
             displayTextView.text = results.toString()
         }
 
+        // Sign Switch
         bSign.setOnClickListener {
+            Log.i("Sign Change Clicked", "Sign change is clicked")
             currentNumber = (currentNumber.toDouble() * -1).toString()
             displayTextView.text = currentNumber
         }
 
+        // Calculate
         bEquals.setOnClickListener {
+            Log.i("Result Clicked", "Calculate is clicked")
             afterNum = currentNumber.toDouble()
             equalsOperations(operation)
             currentNumber = results.toString()
@@ -101,11 +116,43 @@ class MainActivity : AppCompatActivity() {
             displayTextView.text = results.toString()
         }
 
+        // Decimal
         bDec.setOnClickListener {
+            Log.i("Decimal Clicked", "decimal is clicked")
             if (!currentNumber.contains(".")){
                 currentNumber += "."
                 displayTextView.text = currentNumber
             }
+        }
+
+        // Sine operator
+        bSin?.setOnClickListener {
+            Log.i("Operation Clicked", "sin is clicked")
+            operationsClick("S")
+            equalsOperations(operation)
+            initNum = results
+            currentNumber = results.toString()
+            displayTextView.text = results.toString()
+        }
+
+        // Cos operator
+        bCos?.setOnClickListener {
+            Log.i("Operation Clicked", "cos is clicked")
+            operationsClick("C")
+            equalsOperations(operation)
+            initNum = results
+            currentNumber = results.toString()
+            displayTextView.text = results.toString()
+        }
+
+        // Tan operator
+        bTan?.setOnClickListener {
+            Log.i("Operation Clicked", "tan is clicked")
+            operationsClick("T")
+            equalsOperations(operation)
+            initNum = results
+            currentNumber = results.toString()
+            displayTextView.text = results.toString()
         }
 
     }
@@ -138,6 +185,9 @@ class MainActivity : AppCompatActivity() {
             "x" -> results = initNum * afterNum
             "/" -> results = initNum / afterNum
             "%" -> results = initNum / 100.0
+            "S" -> results = sin(initNum).round(6)
+            "C" -> results = cos(initNum).round(6)
+            "T" -> results = tan(initNum).round(6)
         }
     }
 
@@ -146,6 +196,7 @@ class MainActivity : AppCompatActivity() {
      * @param digit - the number button that is being pressed
      */
     fun digitButtonClick (digit : String) {
+        Log.i("Digit button clicked", "$digit is pressed")
         if (currentNumber == "0") currentNumber = digit
         else currentNumber += digit
         displayTextView.text = currentNumber
@@ -157,5 +208,16 @@ class MainActivity : AppCompatActivity() {
             currentNumber = "0"
         }
         operation = op
+        Log.i("Operation Clicked", "$op is pressed")
+    }
+
+    /**
+     * Rounding function
+     * @param number wanting to be rounded
+     */
+    fun Double.round(decimals: Int): Double {
+        var multiplier = 1.0
+        repeat(decimals) { multiplier *= 10 }
+        return kotlin.math.round(this * multiplier) / multiplier
     }
 }
