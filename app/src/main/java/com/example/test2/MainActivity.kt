@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.*
 import kotlin.math.cos
+import kotlin.math.ln
+import kotlin.math.log10
 import kotlin.math.sin
 import kotlin.math.tan
 
@@ -155,6 +157,26 @@ class MainActivity : AppCompatActivity() {
             displayTextView.text = results.toString()
         }
 
+        // Log 10 operator
+        bLog?.setOnClickListener {
+            Log.i("Operation Clicked", "Log10 is clicked")
+            operationsClick("L10")
+            equalsOperations(operation)
+            initNum = results
+            currentNumber = results.toString()
+            displayTextView.text = results.toString()
+        }
+
+        // Log 10 operator
+        bLn?.setOnClickListener {
+            Log.i("Operation Clicked", "ln is clicked")
+            operationsClick("ln")
+            equalsOperations(operation)
+            initNum = results
+            currentNumber = results.toString()
+            displayTextView.text = results.toString()
+        }
+
     }
 
     override fun onDestroy() {
@@ -188,6 +210,8 @@ class MainActivity : AppCompatActivity() {
             "S" -> results = sin(initNum).round(6)
             "C" -> results = cos(initNum).round(6)
             "T" -> results = tan(initNum).round(6)
+            "L10" -> results = log10(initNum)
+            "ln" -> results = ln(initNum)
         }
     }
 
